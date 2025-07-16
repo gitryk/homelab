@@ -1,4 +1,4 @@
-# CA-Server
+# CA-Server-Root
 ## If Need Initalize
 [Initailize Debian](https://github.com/gitryk/homelab/blob/main/Build/Initialize/Debian.md)
 
