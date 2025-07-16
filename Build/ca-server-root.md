@@ -1,4 +1,6 @@
 # CA-Server
+## If Need Initalize
+[Initailize Debian](https://github.com/gitryk/homelab/blob/main/Build/Initialize/Debian.md)
 
 ## Install Yubikey-Manager
 ```sh
