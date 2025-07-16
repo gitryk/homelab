@@ -14,6 +14,7 @@ cd /ca
 sudo cp root_ca.crt /usr/local/share/ca-certificates/tryklab_root_ca.crt
 sudo update-ca-certificates
 ```
+> Assume that you have the downloaded Root CA and the copied Intermediate CA file.
 
 &nbsp;
 
