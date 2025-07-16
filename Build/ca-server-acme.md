@@ -2,6 +2,15 @@
 ## If Need Initalize
 [Initailize Debian](https://github.com/gitryk/homelab/blob/main/Build/Initialize/Debian.md)
 
+If you can't Login LXC Container, connect to console, and **adduser**
+
+&nbsp;
+
+## Register Root-CA
+```sh
+sudo cp root_ca.crt /usr/local/share/ca-certificates/tryklab_root_ca.crt
+sudo update-ca-certificates
+```
 
 
 &nbsp;
