@@ -3,6 +3,13 @@
 [Initailize Debian](https://github.com/gitryk/homelab/blob/main/Build/Initialize/Debian.md)
 
 ## TEST
+
+```
+apt-add-repository ppa:yubico/stable
+apt update
+apt install yubikey-manager opensc libengine-pkcs11-openssl
+```
+
 ykman piv reset
 
 ```
@@ -33,7 +40,6 @@ openssl x509 -in root-signed.pem -text -noout
 ```
 
 ```
-apt install opensc libengine-pkcs11-openssl
 pkcs11-tool --module "/usr/lib/x86_64-linux-gnu/pkcs11/opensc-pkcs11.so" --list-objects --login
 ```
 
@@ -42,7 +48,6 @@ openssl req -new -key test.key -out test.csr -sha512
 openssl x509 -engine pkcs11 -CAkeyform engine -CAkey id_1 -sha512 -CA root-signed.pem -CAcreateserial -req -days 3650 -extfile ca.conf -extensions inter_ca -in test.csr -out inter-signed.pem
 openssl x509 -in inter-signed.pem -text -noout
 ```
-
 
 &nbsp;
 &nbsp;
