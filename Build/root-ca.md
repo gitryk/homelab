@@ -56,8 +56,11 @@ ykman piv certificates export 9a root-signed.pem
 openssl x509 -in root-signed.pem -text -noout
 ```
 > root.pem : public key
+
 > slot 9a : private key ()
+
 > root-signed.pem : self-signed certificate
+
 
 &nbsp;
 
