@@ -7,12 +7,21 @@ Run "**Proxmox VE Shell**"
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/iventoy.sh)"
 ```
+> It need priviliged Install
+
 &nbsp;
 
 ## Mount Proxmox ISO Folder
 ```sh
 pct set [LXC ID] -mp0 /var/lib/vz/template/iso,mp=/opt/iventoy/iso
 ```
+&nbsp;
+
+## iVentoy Setting
+DHCP Server Mode : External
+
+EFI Boot File : snp.efi
+
 &nbsp;
 
 ## Modify OpenWrt dnsmasq config
