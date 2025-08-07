@@ -89,16 +89,28 @@ pkcs11-tool --module "/usr/lib/x86_64-linux-gnu/pkcs11/opensc-pkcs11.so" --list-
 ## Create ca.conf
 
 ```
-cat <<EOF > ca.conf
+cat <<EOF > root_ca.conf
+[req]
+x509_extensions=root_ca
+distinguished_name=req_distinguished_name
+prompt=no
+
+[req_distinguished_name]
+C=KR
+ST=Incheon
+L=Bupyeong-gu
+O=TryK-Lab
+CN=TryK-Lab Root CA
+OU=TryK-Lab Certification
+
 [root_ca]
 subjectKeyIdentifier=hash
 basicConstraints=critical,CA:true,pathlen:1
 keyUsage=critical,keyCertSign,cRLSign
+nameConstraints=critical,@name_constraints
 
-[inter_ca]
-subjectKeyIdentifier=hash
-basicConstraints=critical,CA:true,pathlen:0
-keyUsage=critical,keyCertSign,cRLSign
+[name_constraints]
+permitted;DNS.0=lab.tryk.app
 EOF
 ```
 
