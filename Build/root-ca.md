@@ -24,25 +24,38 @@ ykman piv reset
 
 ```
 ykman piv access change-management-key -a AES256 -g
+```
+```
 Enter the current management key [blank to use default key]: (Press Enter)
 Generated management key: ***************************************
 ```
+
 > Setting up management key
+
+&nbsp;
 
 ```
 ykman piv access change-pin --pin 123456
+```
+```
 Enter the new PIN:
 Repeat for confirmation:
 New PIN set.
 ```
+
 > Setting up PIN
+
+&nbsp;
 
 ```
 ykman piv access change-puk --puk 12345678
+```
+```
 Enter the new PUK:
 Repeat for confirmation:
 New PUK set.
 ```
+
 > Setting up PUK
 
 &nbsp;
