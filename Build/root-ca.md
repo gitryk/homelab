@@ -90,11 +90,15 @@ pkcs11-tool --module "/usr/lib/x86_64-linux-gnu/pkcs11/opensc-pkcs11.so" --list-
 
 ```
 cat <<EOF > ca.conf
+[root_ca]
+subjectKeyIdentifier=hash
+basicConstraints=critical,CA:true,pathlen:1
+keyUsage=critical,keyCertSign,cRLSign
+
 [inter_ca]
 subjectKeyIdentifier=hash
 basicConstraints=critical,CA:true,pathlen:0
 keyUsage=critical,keyCertSign,cRLSign
-nameConstraints=critical,@name_constraints
 EOF
 ```
 
