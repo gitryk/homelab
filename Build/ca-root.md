@@ -60,6 +60,16 @@ New PUK set.
 
 &nbsp;
 
+## Download Pre-Config File
+```
+wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-inter.conf
+wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-root.conf
+```
+
+change information if your want
+
+&nbsp;
+
 ## Create Root CA Key
 
 ```
