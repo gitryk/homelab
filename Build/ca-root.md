@@ -12,6 +12,39 @@ apt install yubikey-manager opensc libengine-pkcs11-openssl
 
 &nbsp;
 
+## Download Pre-Config File
+```
+wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-inter.conf
+wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-root.conf
+```
+
+> Change information if your want
+
+**From the next step, recommend that you proceed offline.**
+
+&nbsp;
+
+## Create Root CA Key
+
+```
+openssl req -x509 -new -newkey ed25519 -sha512 \
+  -config ca-root.conf -keyout root_ca.key -out root_ca.crt \
+  -days 7300
+```
+|Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
+|:---|
+
+> Create Self Signed Root CA
+
+&nbsp;
+
+```
+openssl x509 -in root_ca.crt -text -noout
+```
+> Check Root CA if you want
+
+&nbsp;
+
 ## If Need Reset yubikey
 
 ```
@@ -25,10 +58,8 @@ ykman piv reset
 ```
 ykman piv access change-management-key -a AES256 -g
 ```
-```
-Enter the current management key [blank to use default key]: (Press Enter)
-Generated management key: ***************************************
-```
+|Enter the current management key [blank to use default key]: (Press Enter)<br> Generated management key: ***************************************|
+|:---|
 
 > Setting up management key
 
@@ -37,11 +68,8 @@ Generated management key: ***************************************
 ```
 ykman piv access change-pin --pin 123456
 ```
-```
-Enter the new PIN:
-Repeat for confirmation:
-New PIN set.
-```
+|Enter the new PIN: (pin you want)<br>Repeat for confirmation: (1 more)<br>New PIN set.|
+|:---|
 
 > Setting up PIN
 
@@ -50,91 +78,55 @@ New PIN set.
 ```
 ykman piv access change-puk --puk 12345678
 ```
-```
-Enter the new PUK:
-Repeat for confirmation:
-New PUK set.
-```
+|Enter the new PUK: (puk you want)<br>Repeat for confirmation: (1 more)<br>New PUK set.|
+|:---|
 
 > Setting up PUK
 
 &nbsp;
 
-## Download Pre-Config File
-```
-wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-inter.conf
-wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-root.conf
-```
 
-change information if your want
-
-&nbsp;
-
-## Create Root CA Key
+## Insert Private Key to Yubikey 5
 
 ```
-ykman piv keys generate -a ECCP384 9a root.pem
-ykman piv certificates generate -s 'C=KR,ST=Incheon,L=Incheon,O=TryK-Lab,OU=TryK-Lab Certification,CN=TryK-Lab Root CA' -d 7305 -a SHA512 9a root.pem
-ykman piv certificates export 9a root-signed.pem
-openssl x509 -in root-signed.pem -text -noout
-```
-> root.pem : public key
-
-> slot 9a : private key ()
-
-> root-signed.pem : self-signed certificate
-
-
-&nbsp;
-
-## Verify Certificate
-
-```
-pkcs11-tool --module "/usr/lib/x86_64-linux-gnu/pkcs11/opensc-pkcs11.so" --list-objects --login
+yubico-piv-tool -a import-key -s 9a -i root_ca.key
+yubico-piv-tool -a import-certificate -s 9a -i root_ca.crt
+rm -rf root_ca.key
 ```
 
 &nbsp;
 
-
-## Create ca.conf
+## Create Intermediate CA Key and Signing
 
 ```
-cat <<EOF > root_ca.conf
-[req]
-x509_extensions=root_ca
-distinguished_name=req_distinguished_name
-prompt=no
-
-[req_distinguished_name]
-C=KR
-ST=Incheon
-L=Bupyeong-gu
-O=TryK-Lab
-CN=TryK-Lab Root CA
-OU=TryK-Lab Certification
-
-[root_ca]
-subjectKeyIdentifier=hash
-basicConstraints=critical,CA:true,pathlen:1
-keyUsage=critical,keyCertSign,cRLSign
-nameConstraints=critical,@name_constraints
-
-[name_constraints]
-permitted;DNS.0=lab.tryk.app
-EOF
+openssl req -new -newkey ed25519 -sha512 \
+  -keyout intermediate_key -config ca-inter.conf -out intermediate.csr
 ```
+|Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
+|:---|
+> Create Intermediate CA Key
 
 &nbsp;
 
-## Create inter ca key and signing
-
 ```
-openssl req -new -key test.key -out test.csr -sha512
-openssl x509 -engine pkcs11 -CAkeyform engine -CAkey id_1 -sha512 -CA root-signed.pem -CAcreateserial -req -days 3650 -extfile ca.conf -extensions inter_ca -in test.csr -out inter-signed.pem
-openssl x509 -in inter-signed.pem -text -noout
+openssl x509 -sha512 -engine pkcs11 -CAkeyform engine \
+  -CAkey id_1 -CA root_ca.crt -CAcreateserial \
+  -extfile ca-inter.conf -in intermediate.csr -out intermediate_ca.crt \
+  -req -days 3650
 ```
+> Sign CSR with Root CA Key inside Yubikey
 
 &nbsp;
+
+```
+openssl x509 -in intermediate_ca.crt -text -noout
+```
+> Check Intermediate CA if you want
+
+&nbsp;
+
+Copy 3 File(**intermediate_ca.crt, intermediate_key, root_ca.crt**) to ca-server
+
 &nbsp;
 ## Reference document
 [yubikey-ca](https://github.com/samngms/yubikey-ca)
