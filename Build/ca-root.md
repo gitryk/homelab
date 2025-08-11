@@ -7,7 +7,7 @@
 ```
 apt-add-repository ppa:yubico/stable
 apt update
-apt install yubikey-manager opensc libengine-pkcs11-openssl
+apt install yubikey-manager yubico-piv-tool opensc libengine-pkcs11-openssl
 ```
 
 &nbsp;
@@ -27,7 +27,7 @@ wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme
 ## Create Root CA Key
 
 ```
-openssl req -x509 -new -newkey ed25519 -sha512 \
+openssl req -x509 -new -newkey rsa:2048 -sha512 \
   -config ca-root.conf -keyout root_ca.key -out root_ca.crt \
   -days 7300
 ```
@@ -88,11 +88,51 @@ ykman piv access change-puk --puk 12345678
 
 ## Insert Private Key to Yubikey 5
 
+Import your key:
+
 ```
-yubico-piv-tool -a import-key -s 9a -i root_ca.key
-yubico-piv-tool -a import-certificate -s 9a -i root_ca.crt
+ykman piv keys import 9a root_ca.key
+```
+|Enter password to decrypt key: (decrypt key)<br>Enter a management key [blank to use default key]: (Generated key at before step)|
+|:---|
+
+&nbsp;
+
+Import your cert:
+
+```
+ykman piv certificates import 9a root_ca.crt
+```
+|Enter a management key [blank to use default key]: (Generated key at before step)|
+|:---|
+
+&nbsp;
+
+Check your yubikey slot:
+
+```
+yubico-piv-tool -a status -s 9a
+```
+
+```
+Version:        5.7.4
+Serial Number:  ****
+CHUID:  ***************************************
+CCC:    No data available
+Slot 9a:
+        Algorithm:      RSA2048
+        Subject DN:     C=KR, ST=Incheon, L=Bupyeong-gu, O=TryK-Lab, CN=TryK-Lab Root CA, OU=TryK-Lab Certification
+        Issuer DN:      C=KR, ST=Incheon, L=Bupyeong-gu, O=TryK-Lab, CN=TryK-Lab Root CA, OU=TryK-Lab Certification
+        Fingerprint:    *********************************
+        Not Before:     Aug 11 02:23:01 2025 GMT
+        Not After:      Aug  6 02:23:01 2045 GMT
+```
+
+```
 rm -rf root_ca.key
 ```
+
+Step Ended, Delete your key
 
 &nbsp;
 
