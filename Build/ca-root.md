@@ -166,7 +166,7 @@ openssl x509 -in intermediate_ca.crt -text -noout
 
 &nbsp;
 
-Copy 3 File(**intermediate_ca.crt, intermediate_key, root_ca.crt**) to ca-server
+Copy 3 File(**intermediate_ca.crt, intermediate_ca_key, root_ca.crt**) to ca-server
 
 &nbsp;
 ## Reference document
