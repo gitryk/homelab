@@ -139,7 +139,7 @@ Step Ended, Delete your key
 ## Create Intermediate CA Key and Signing
 
 ```
-openssl req -new -newkey ed25519 -sha512 \
+openssl req -new -newkey rsa:2048 -sha512 \
   -keyout intermediate_key -config ca-inter.conf -out intermediate.csr
 ```
 |Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
