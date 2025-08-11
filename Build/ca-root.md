@@ -151,7 +151,8 @@ openssl req -new -newkey rsa:2048 -sha512 \
 ```
 openssl x509 -sha512 -engine pkcs11 -CAkeyform engine \
   -CAkey id_1 -CA root_ca.crt -CAcreateserial \
-  -extfile ca-inter.conf -in intermediate.csr -out intermediate_ca.crt \
+  -extfile ca-inter.conf -extensions inter_ca \
+  -in intermediate.csr -out intermediate_ca.crt \
   -req -days 3650
 ```
 > Sign CSR with Root CA Key inside Yubikey
