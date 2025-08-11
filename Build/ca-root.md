@@ -140,7 +140,7 @@ Step Ended, Delete your key
 
 ```
 openssl req -new -newkey rsa:2048 -sha512 \
-  -keyout intermediate_key -config ca-inter.conf -out intermediate.csr
+  -keyout intermediate_ca_key -config ca-inter.conf -out intermediate.csr
 ```
 |Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
 |:---|
