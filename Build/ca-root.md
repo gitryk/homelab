@@ -2,13 +2,14 @@
 ## If Need Initalize
 [Initailize Debian](https://github.com/gitryk/homelab/blob/main/Build/Initialize/Debian.md)
 
-## Init Setting
+## Yubikey Init Setting
 
 ```
 apt-add-repository ppa:yubico/stable
 apt update
 apt install yubikey-manager yubico-piv-tool opensc libengine-pkcs11-openssl
 ```
+> if not have yubikey, skip this step
 
 &nbsp;
 
@@ -18,42 +19,20 @@ wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme
 wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-root.conf
 ```
 
-> Change information if your want
+> modify conf if your want
 
-**From the next step, recommend that you proceed offline.**
-
-&nbsp;
-
-## Create Root CA Key
-
-```
-openssl req -x509 -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
-  -config ca-root.conf -keyout root_ca.key -out root_ca.crt \
-  -days 7300
-```
-|Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
-|:---|
-
-> Create Self Signed Root CA
-
-&nbsp;
-
-```
-openssl x509 -in root_ca.crt -text -noout
-```
-> Check Root CA if you want
-
-&nbsp;
-
-## If Need Reset yubikey
-
-```
-ykman piv reset
-```
+**Before next step, recommend that you proceed offline.**
 
 &nbsp;
 
 ## yubikey initialize
+
+```
+ykman piv reset
+```
+> If Need Reset yubikey
+
+&nbsp;
 
 ```
 ykman piv access change-management-key -a AES256 -g
@@ -85,6 +64,26 @@ ykman piv access change-puk --puk 12345678
 
 &nbsp;
 
+## Create Root CA Key
+
+```
+openssl req -x509 -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
+  -config ca-root.conf -keyout root_ca.key -out root_ca.crt \
+  -days 7300
+```
+|Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
+|:---|
+
+> Create Self Signed Root CA
+
+&nbsp;
+
+```
+openssl x509 -in root_ca.crt -text -noout
+```
+> Check Root CA if you want
+
+&nbsp;
 
 ## Insert Root CA to Yubikey 5
 
