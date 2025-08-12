@@ -2,8 +2,9 @@
 ## If Need Initalize
 [Initailize Debian](https://github.com/gitryk/homelab/blob/main/Build/Initialize/Debian.md)
 
-## Yubikey Init Setting
+&nbsp;
 
+## Yubikey Install Dependencies
 ```
 apt-add-repository ppa:yubico/stable
 apt update
@@ -25,7 +26,7 @@ wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme
 
 &nbsp;
 
-## yubikey initialize
+## Yubikey initialize
 
 ```
 ykman piv reset
