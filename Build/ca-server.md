@@ -54,9 +54,25 @@ step certificate fingerprint /root/.step/certs/root_ca.crt
 
 &nbsp;
 
+```
+step ca provisioner add acme --type ACME
+```
+
+```
+step-ca
+```
+
 # ACME For Proxmox
+```
+wget --no-check-certificate https://acme.lab.tryk.app:443/roots.pem
+mv roots.pem /usr/local/share/ca-certificates/root_ca.crt
+update-ca-certificates
+```
+> install Root CA Cert
 
 &nbsp;
+
+Create ACME default Account, Address is **https://acme.domain.com/acme/acme/directory** Set, Type is **standalone** Set
 
 # ACME For OpenWRT
 
