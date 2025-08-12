@@ -165,7 +165,7 @@ openssl x509 -sha256 -CAkey root_ca.key -CA root_ca.crt \
   -in intermediate.csr -out intermediate_ca.crt \
   -req -days 3650
 ```
-> Don't have Yubikey
+> if don't have Yubikey
 
 
 &nbsp;
