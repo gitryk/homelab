@@ -86,7 +86,7 @@ ykman piv access change-puk --puk 12345678
 &nbsp;
 
 
-## Insert Private Key to Yubikey 5
+## Insert Root CA to Yubikey 5
 
 Import your key:
 
@@ -132,7 +132,7 @@ Slot 9a:
 rm -rf root_ca.key
 ```
 
-Step Ended, Delete your key
+Step Ended, Delete your key (Only Yubikey you have)
 
 &nbsp;
 
@@ -156,6 +156,17 @@ openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
   -req -days 3650
 ```
 > Sign CSR with Root CA Key inside Yubikey
+
+&nbsp;
+
+```
+openssl x509 -sha256 -CAkey root_ca.key -CA root_ca.crt \
+  -extfile ca-inter.conf -extensions inter_ca \
+  -in intermediate.csr -out intermediate_ca.crt \
+  -req -days 3650
+```
+> Don't have Yubikey
+
 
 &nbsp;
 
