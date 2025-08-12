@@ -27,7 +27,7 @@ wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme
 ## Create Root CA Key
 
 ```
-openssl req -x509 -new -newkey rsa:2048 -sha512 \
+openssl req -x509 -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
   -config ca-root.conf -keyout root_ca.key -out root_ca.crt \
   -days 7300
 ```
@@ -139,7 +139,7 @@ Step Ended, Delete your key
 ## Create Intermediate CA Key and Signing
 
 ```
-openssl req -new -newkey rsa:2048 -sha512 \
+openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
   -keyout intermediate_ca_key -config ca-inter.conf -out intermediate.csr
 ```
 |Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
@@ -149,7 +149,7 @@ openssl req -new -newkey rsa:2048 -sha512 \
 &nbsp;
 
 ```
-openssl x509 -sha512 -engine pkcs11 -CAkeyform engine \
+openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
   -CAkey id_1 -CA root_ca.crt -CAcreateserial \
   -extfile ca-inter.conf -extensions inter_ca \
   -in intermediate.csr -out intermediate_ca.crt \
