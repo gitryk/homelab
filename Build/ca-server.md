@@ -139,7 +139,7 @@ After restart uhttpd
 &nbsp;
 
 ```
-/usr/lib/acme/acme.sh --cron --home "/usr/lib/acme" --accountconf "/etc/acme/config/account.conf" --config-home "/etc/acme/config" --cert-home "/etc/acme/config/certs"
+/usr/lib/acme/acme.sh --cron --home "/usr/lib/acme" --accountconf "/etc/acme/config/account.conf" --config-home "/etc/acme/config" --cert-home "/etc/ssl/acme"
 /usr/lib/acme/acme.sh --cron
 ```
 > Register Cron
