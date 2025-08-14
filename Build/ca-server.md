@@ -108,9 +108,10 @@ mv /usr/lib/acme /usr/lib/acme.origin
 mv acme.sh-3.1.1 /usr/lib/acme.install
 mkdir -p /etc/ssl/acme
 mkdir -p /etc/acme/config
-/usr/lib/acme/acme.sh --install --home /usr/lib/acme --cert-home /etc/ssl/acme --config-home /etc/acme/config \
+/usr/lib/acme.install/acme.sh --install --home /usr/lib/acme --cert-home /etc/ssl/acme --config-home /etc/acme/config \
     --accountkey /etc/acme/account --useragent "" --log /var/log/acme.log \
     --accountemail YourEmail@YourProvider.com
+rm -rf 3.1.1.zip
 ```
 > Change Email Address
 
