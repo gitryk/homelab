@@ -89,36 +89,34 @@ ln -s "/etc/ssl/certs/root_ca.crt" "/etc/ssl/certs/$HASH"
 
 &nbsp;
 
-```
-opkg update
-opkg install acme acme-acmesh acme-acmesh-dnsapi luci-app-acme unzip
-```
-> It's OK to install from Luci
-
-> I don't think luci-app-acme is necessary..?
-
-&nbsp;
-
 [acmesh-official/acme.sh](https://github.com/acmesh-official/acme.sh) you can download latest acme.sh
 
 ```
-wget https://github.com/acmesh-official/acme.sh/archive/refs/tags/3.1.1.zip
-unzip 3.1.1.zip
+ACME_VER="3.1.1"
+ACME_EMAIL="yourmail@domain.com"
+opkg update
+opkg install unzip
+wget https://github.com/acmesh-official/acme.sh/archive/refs/tags/$ACME_VER.zip
+unzip $ACME_VER.zip
 mv /usr/lib/acme /usr/lib/acme.origin
 mv acme.sh-3.1.1 /usr/lib/acme.install
 mkdir -p /etc/ssl/acme
 mkdir -p /etc/acme/config
 /usr/lib/acme.install/acme.sh --install --home /usr/lib/acme --cert-home /etc/ssl/acme --config-home /etc/acme/config \
     --accountkey /etc/acme/account --useragent "" --log /var/log/acme.log \
-    --accountemail YourEmail@YourProvider.com
-rm -rf 3.1.1.zip
+    --accountemail $ACME_EMAIL
+rm -rf $ACME_VER.zip /usr/lib/acme.install
 ```
 > Change Email Address
 
 &nbsp;
 
 ```
-/usr/lib/acme/acme.sh --issue -d router.domain.com --webroot /var/run/acme/challenge/ --server https://acme.domain.com/acme/acme/directory
+DOMAIN="domain.com"
+WRT_IP="192.168.1.1"
+/usr/lib/acme/acme.sh --issue --webroot /var/run/acme/challenge/ --cert-home /etc/ssl/acme \
+    --server https://acme.$DOMAIN/acme/acme/directory \
+    -d router.$DOMAIN -d $WRT_IP
 ```
 > Your cert is in: /root/.acme.sh/router.domain.com_ecc/router.lab.tryk.app.cer
 > 
