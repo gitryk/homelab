@@ -91,7 +91,7 @@ ln -s "/etc/ssl/certs/root_ca.crt" "/etc/ssl/certs/$HASH"
 
 ```
 opkg update
-opkg install acme acme-dnsapi luci-app-acme unzip
+opkg install acme acme-acmesh acme-acmesh-dnsapi luci-app-acme unzip
 ```
 > It's OK to install from Luci
 
