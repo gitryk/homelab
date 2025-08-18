@@ -64,7 +64,7 @@ step-ca
 
 # ACME For Proxmox
 ```
-wget --no-check-certificate https://acme.lab.tryk.app:443/roots.pem
+wget --no-check-certificate https://acme.domain.com:443/roots.pem
 mv roots.pem /usr/local/share/ca-certificates/root_ca.crt
 update-ca-certificates
 ```
@@ -79,7 +79,7 @@ Create ACME default Account, Address is **https://acme.domain.com/acme/acme/dire
 **Suppose work in home directory**
 
 ```
-wget --no-check-certificate https://acme.lab.tryk.app:443/roots.pem
+wget --no-check-certificate https://acme.domain.com:443/roots.pem
 mv roots.pem /etc/ssl/certs/root_ca.crt
 HASH="$(openssl x509 -hash -noout -in /etc/ssl/certs/root_ca.crt).0" 
 echo "$HASH"
@@ -118,9 +118,9 @@ WRT_IP="192.168.1.1"
     --server https://acme.$DOMAIN/acme/acme/directory \
     -d router.$DOMAIN -d $WRT_IP
 ```
-> Your cert is in: /root/.acme.sh/router.domain.com_ecc/router.lab.tryk.app.cer
+> Your cert is in: /root/.acme.sh/router.domain.com_ecc/router.domain.com.cer
 > 
-> Your cert key is in: **/root/.acme.sh/router.domain.com_ecc/router.lab.tryk.app.key**
+> Your cert key is in: **/root/.acme.sh/router.domain.com_ecc/router.domain.com.key**
 > 
 > The intermediate CA cert is in: /root/.acme.sh/router.domain.com_ecc/ca.cer
 > 
