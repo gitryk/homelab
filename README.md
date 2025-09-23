@@ -12,7 +12,7 @@ Hardware Spec --- [Link](https://github.com/gitryk/homelab/wiki/Hardware)
 
 &nbsp;
 
-## Build Order
+## Setting
 
 01. Install Proxmox VE
 
