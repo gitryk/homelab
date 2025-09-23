@@ -2,13 +2,14 @@
 
 ## Planning
 
-Planning Detail --- [Link](https://github.com/gitryk/homelab/wiki/Planning)
+Planning Detail --- [Link](https://github.com/gitryk/homelab/tree/main/Plan)
 
 &nbsp;
 
 ## Hardware
 
-Hardware Spec --- [Link](https://github.com/gitryk/homelab/wiki/Hardware)
+Hardware Spec --- [Link](https://github.com/gitryk/homelab/tree/main/Hardware)
+
 
 &nbsp;
 
