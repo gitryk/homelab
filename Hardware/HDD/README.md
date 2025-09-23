@@ -12,4 +12,10 @@ I have created two types of models for mounting on a 10-inch rack mount.
 
 &nbsp;
 
+## Actual Picture
+
+&nbsp;
+&nbsp;
+
+
 [Return to Hardware](https://github.com/gitryk/homelab/tree/main/Hardware)
