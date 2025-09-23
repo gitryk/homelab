@@ -10,6 +10,10 @@
 
 I designed a rail to mount a Lenovo Tiny vertically.
 
+It designed to be attached to a 10-inch rack tray.
+
+Need 8x Heat-set insert
+
 &nbsp;
 
 ## Actual Picture
