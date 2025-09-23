@@ -31,6 +31,8 @@
 
 buy on Xianyu
 
+[Check out the additional work...](https://github.com/gitryk/homelab/tree/main/Hardware/HDD)
+
 &nbsp;
 
 ## HJS-480-0-24
