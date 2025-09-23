@@ -31,6 +31,8 @@
 
 buy on Xianyu
 
+&nbsp;
+
 [Check out the additional work...](https://github.com/gitryk/homelab/tree/main/Hardware/HDD)
 
 &nbsp;
@@ -65,6 +67,10 @@ buy on Aliexpress 2 Unit
 |SSD/Data|Micron MX500 SATA 1TB|
 
 **Proxmox VE Server**
+
+&nbsp;
+
+[Check out the additional work...](https://github.com/gitryk/homelab/tree/main/Hardware/Tiny)
 
 &nbsp;
 
