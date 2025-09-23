@@ -12,4 +12,9 @@ I designed a rail to mount a Lenovo Tiny vertically.
 
 &nbsp;
 
+## Actual Picture
+
+&nbsp;
+&nbsp;
+
 [Return to Hardware](https://github.com/gitryk/homelab/tree/main/Hardware)
