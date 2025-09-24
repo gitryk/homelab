@@ -12,7 +12,7 @@ I designed a rail to mount a Lenovo Tiny vertically.
 
 It designed to be attached to a 10-inch rack tray.
 
-Need 8x Heat-set insert
+Need 8x Heat-set insert(M3, OD 5mm, Length 4mm), The Guard is secured using M3-5mm(for Motherboard Screw) screws.
 
 &nbsp;
 
