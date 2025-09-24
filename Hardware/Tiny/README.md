@@ -4,9 +4,7 @@
 
 ## 3D Modeling
 
-<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/Rail-01.png" width="50%" height="50%">
-
-<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/Rail-02.png" width="50%" height="50%">
+<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/Rail-01.png" width="40%" height="40%"> <img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/Rail-02.png" width="40%" height="40%">
 
 I designed a rail to mount a Lenovo Tiny vertically.
 
