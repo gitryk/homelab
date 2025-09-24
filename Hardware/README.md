@@ -109,8 +109,7 @@ buy on Aliexpress 2 Unit
 
 ## Radxa X4
 
-<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/x4.png" width="30%" height="30%">
-<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/heatsink_x4.png" width="30%" height="30%">
+<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/x4.png" width="30%" height="30%"><img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/heatsink_x4.png" width="30%" height="30%">
 
 |Component|Item|
 |---|---|
