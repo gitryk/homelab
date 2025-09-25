@@ -16,6 +16,8 @@ Need 8x Heat-set insert(M3, OD 5mm, Length 4mm), The Guard is secured using M3-5
 
 ## Actual Picture
 
+<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/TinyMount-03.jpg" width="40%"> <img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/TinyMount-04.jpg" width="40%">
+
 &nbsp;
 &nbsp;
 
