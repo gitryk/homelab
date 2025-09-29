@@ -1,4 +1,4 @@
-# Debian Initailize
+# Rocky Initailize
 **Environment settings**
 
 ```shell
