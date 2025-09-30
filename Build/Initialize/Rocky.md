@@ -35,6 +35,8 @@ sudo firewall-cmd --list-all
 **Install Cert**
 
 ```shell
+wget --no-check-certificate https://ca.tryk.app/roots.pem
+mv roots.pem root_ca.crt
 sudo cp root_ca.crt /etc/pki/ca-trust/source/anchors/
 sudo update-ca-trust extract
 ```
