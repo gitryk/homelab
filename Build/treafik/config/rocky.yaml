@@ -1,0 +1,16 @@
+http:
+  routers:
+    rocky:
+      entryPoints: [websecure]
+      service: rocky
+      middlewares: []
+      rule: 'Host(`rocky.{{ env "DOMAIN" }}`)'
+      tls:
+        certResolver: step
+
+
+  services:
+    rocky:
+      loadBalancer:
+        servers:
+          - url: "https://host.containers.internal:9090/"
