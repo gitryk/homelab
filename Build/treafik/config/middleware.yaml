@@ -1,0 +1,23 @@
+http:
+  middlewares:
+    compress: { compress: {} }
+
+    ratelimit:
+      rateLimit:
+        average: 50
+        burst: 100
+
+    secure-headers:
+      headers:
+        stsSeconds: 15552000
+        stsIncludeSubdomains: true
+        stsPreload: true
+        frameDeny: true
+        contentTypeNosniff: true
+        browserXssFilter: true
+        referrerPolicy: "strict-origin-when-cross-origin"
+        permissionsPolicy: "geolocation=()"
+
+    mw-stack:
+      chain:
+        middlewares: [compress, ratelimit, secure-headers]
