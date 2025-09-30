@@ -29,3 +29,14 @@ sudo firewall-cmd --list-all
 ```
 
 &nbsp;
+
+
+**Install Cert**
+
+```shell
+sudo cp root_ca.crt /etc/pki/ca-trust/source/anchors/
+sudo update-ca-trust extract
+```
+
+&nbsp;
+
