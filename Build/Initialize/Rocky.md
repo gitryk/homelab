@@ -2,7 +2,7 @@
 **Environment settings**
 
 ```shell
-sudo dnf install podman cockpit vim -y
+sudo dnf install nc podman cockpit vim -y
 sudo systemctl enable podman
 sudo systemctl enable --now cockpit.socket
 mkdir -p ~/.config/containers/systemd/
