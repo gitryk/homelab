@@ -99,7 +99,7 @@ opkg install unzip
 wget https://github.com/acmesh-official/acme.sh/archive/refs/tags/$ACME_VER.zip
 unzip $ACME_VER.zip
 mv /usr/lib/acme /usr/lib/acme.origin
-mv acme.sh-3.1.1 /usr/lib/acme.install
+mv acme.sh-$ACME_VER /usr/lib/acme.install
 mkdir -p /etc/ssl/acme
 mkdir -p /etc/acme/config
 /usr/lib/acme.install/acme.sh --install --home /usr/lib/acme --cert-home /etc/ssl/acme --config-home /etc/acme/config \
