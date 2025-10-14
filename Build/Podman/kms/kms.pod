@@ -1,0 +1,8 @@
+[Unit]
+Description=KMS Service Pod
+
+[Pod]
+PodName=kms
+Network=services.network
+PublishPort=1688:1688/tcp
+PodmanArgs=--userns=keep-id
