@@ -22,9 +22,9 @@ http:
       stripPrefix:
         prefixes: "/code"
 
-    git-prefix:
+    gitea-prefix:
       stripPrefix:
-        prefixes: "/git"
+        prefixes: "/gitea"
 
     mw-stack:
       chain:
