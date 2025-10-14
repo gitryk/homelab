@@ -1,5 +1,13 @@
 # GET Files
 
+**Variable declaration**
+
+```shell
+GIT_URL="https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main"
+```
+
+&nbsp;
+
 ```shell
 wget $GIT_URL/treafik/config/dashboard.yaml
 wget $GIT_URL/treafik/config/devops-coder.yaml
