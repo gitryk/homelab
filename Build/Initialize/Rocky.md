@@ -11,6 +11,14 @@ mkdir -p ~/.config/systemd/user
 loginctl enable-linger $UID
 
 podman --version
+
+mkdir -p traefik/{config,logs}
+mkdir -p devops/code-server/{config,local,workspace}
+mkdir -p devops/gitea/{git,gitea}
+mkdir -p devops/postgres
+mkdir kms
+touch traefik/access.log
+touch traefik/traefik.log
 ```
 
 &nbsp;
