@@ -1,0 +1,15 @@
+http:
+  routers:
+    gitea:
+      entryPoints: [websecure]
+      service: gitea
+      middlewares: [mw-stack, git-prefix]
+      rule: 'Host(`devops.{{ env "DOMAIN" }}`) && PathPrefix(`/git`)'
+      tls:
+        certResolver: step
+
+  services:
+    gitea:
+      loadBalancer:
+        servers:
+          - url: "http://gitea:3000/"
