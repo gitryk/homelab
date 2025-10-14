@@ -1,0 +1,15 @@
+http:
+  routers:
+    code-svr:
+      entryPoints: [websecure]
+      service: code-svr
+      middlewares: [mw-stack, code-prefix]
+      rule: 'Host(`devops.{{ env "DOMAIN" }}`) && PathPrefix(`/code`)'
+      tls:
+        certResolver: step
+
+  services:
+    code-svr:
+      loadBalancer:
+        servers:
+          - url: "http://coder:8080/"
