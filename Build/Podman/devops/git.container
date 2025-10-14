@@ -1,0 +1,25 @@
+[Unit]
+Description=Git-Server
+After=dops-db.service
+Requires=dops-db.service
+
+[Service]
+Restart=always
+RestartSec=10s
+
+[Container]
+NoNewPrivileges=true
+UserNS=keep-id:uid=1000,gid=1000
+
+Image=docker.gitea.com/gitea:1.24.6-rootless
+ContainerName=gitea
+Network=services.network
+Pod=devops.pod
+
+EnvironmentFile=%h/devops/gitea.env
+
+Volume=%h/devops/gitea/git/:/data/git/:Z
+Volume=%h/devops/gitea/gitea/:/data/gitea/:Z
+
+[Install]
+WantedBy=multi-user.target default.target
