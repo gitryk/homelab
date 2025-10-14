@@ -72,6 +72,8 @@ DOMAIN="domain.com"
 
 &nbsp;
 
+**Install Root CA**
+
 ```
 wget --no-check-certificate https://ca.$DOMAIN/roots.pem
 mv roots.pem /usr/local/share/ca-certificates/root_ca.crt
