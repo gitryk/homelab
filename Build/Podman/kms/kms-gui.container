@@ -1,0 +1,22 @@
+[Unit]
+Description=KMS GUI
+After=kms.service
+Requires=kms.service
+
+[Service]
+Restart=always
+RestartSec=10s
+
+[Container]
+NoNewPrivileges=true
+
+Image=docker.io/11notes/kms-gui:1.0.3
+ContainerName=kms-gui
+Pod=kms.pod
+
+Environment=TZ=Asia/Seoul
+
+Volume=%h/kms/:/kms/var/:Z
+
+[Install]
+WantedBy=multi-user.target default.target
