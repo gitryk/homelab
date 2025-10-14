@@ -1,0 +1,24 @@
+[Unit]
+Description=Code-Server
+
+[Service]
+Restart=always
+RestartSec=10s
+
+[Container]
+NoNewPrivileges=true
+UserNS=keep-id:uid=1000,gid=1000
+
+Image=docker.io/codercom/code-server:4.104.3
+ContainerName=coder
+Network=services.network
+Pod=devops.pod
+
+Environment=TZ=Asia/Seoul
+
+Volume=%h/devops/code-server/workspace:/home/coder/project/:Z
+Volume=%h/devops/code-server/config:/home/coder/.config/code-server/:Z
+Volume=%h/devops/code-server/local:/home/coder/.local/share/code-server/:Z
+
+[Install]
+WantedBy=multi-user.target default.target
