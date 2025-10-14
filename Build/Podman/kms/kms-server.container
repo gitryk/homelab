@@ -1,0 +1,21 @@
+[Unit]
+Description=KMS Server
+
+[Service]
+Restart=always
+RestartSec=10s
+
+[Container]
+NoNewPrivileges=true
+
+Image=docker.io/11notes/kms:1.0.3
+ContainerName=kms
+Pod=kms.pod
+
+Environment=TZ=Asia/Seoul
+
+Volume=%h/kms/:/kms/var/:Z
+Volume=%h/kms/KmsDataBase.xml:/opt/py-kms/KmsDataBase.xml:Z
+
+[Install]
+WantedBy=multi-user.target default.target
