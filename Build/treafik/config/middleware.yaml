@@ -18,6 +18,14 @@ http:
         referrerPolicy: "strict-origin-when-cross-origin"
         permissionsPolicy: "geolocation=()"
 
+    code-prefix:
+      stripPrefix:
+        prefixes: "/code"
+
+    git-prefix:
+      stripPrefix:
+        prefixes: "/git"
+
     mw-stack:
       chain:
-        middlewares: [compress, ratelimit, secure-headers]
+        middlewares: [compress, ratelimit]
