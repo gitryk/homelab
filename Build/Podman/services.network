@@ -1,0 +1,9 @@
+[Unit]
+Description=Podman Service-Network
+Wants=network-online.target
+After=network-online.target
+
+[Network]
+
+[Install]
+WantedBy=multi-user.target default.target
