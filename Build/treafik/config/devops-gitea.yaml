@@ -4,7 +4,7 @@ http:
       entryPoints: [websecure]
       service: gitea
       middlewares: [mw-stack, git-prefix]
-      rule: 'Host(`devops.{{ env "DOMAIN" }}`) && PathPrefix(`/git`)'
+      rule: 'Host(`devops.{{ env "DOMAIN" }}`) && PathPrefix(`/gitea`)'
       tls:
         certResolver: step
 
