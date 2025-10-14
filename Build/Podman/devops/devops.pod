@@ -1,0 +1,6 @@
+[Unit]
+Description=DevOps Service Pod
+
+[Pod]
+PodName=devops
+Network=services.network
