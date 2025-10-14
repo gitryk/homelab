@@ -4,7 +4,6 @@
 
 ```shell
 DOMAIN="domain.com"
-GIT_URL="https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main"
 ```
 
 &nbsp;
