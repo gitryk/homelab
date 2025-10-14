@@ -1,7 +1,7 @@
 [Unit]
 Description=KMS GUI
-After=kms.service
-Requires=kms.service
+After=kms-server.service
+Requires=kms-server.service
 
 [Service]
 Restart=always
