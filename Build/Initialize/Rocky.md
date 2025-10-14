@@ -3,7 +3,7 @@
 **Environment settings**
 
 ```shell
-
+DOMAIN="domain.com"
 ```
 
 
@@ -51,7 +51,7 @@ sudo firewall-cmd --list-all
 **Install Cert**
 
 ```shell
-wget --no-check-certificate https://ca.domain.com/roots.pem
+wget --no-check-certificate https://ca.$DOMAIN/roots.pem
 mv roots.pem traefik/root_ca.crt
 sudo cp traefik/root_ca.crt /etc/pki/ca-trust/source/anchors/
 sudo update-ca-trust extract
