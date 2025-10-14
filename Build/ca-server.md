@@ -6,11 +6,6 @@ If you can't Login LXC Container, connect to console, and **adduser**
 
 &nbsp;
 
-## Variable declaration
-```shell
-DOMAIN="domain.com"
-```
-
 ## Install Step-CA
 ```sh
 sudo apt update && sudo apt install -y --no-install-recommends curl vim gpg ca-certificates
@@ -68,8 +63,17 @@ step-ca
 ```
 
 # ACME For Proxmox
+
+**Variable declaration**
+
+```shell
+DOMAIN="domain.com"
 ```
-wget --no-check-certificate https://acme.domain.com:443/roots.pem
+
+&nbsp;
+
+```
+wget --no-check-certificate https://ca.$DOMAIN/roots.pem
 mv roots.pem /usr/local/share/ca-certificates/root_ca.crt
 update-ca-certificates
 ```
@@ -77,14 +81,23 @@ update-ca-certificates
 
 &nbsp;
 
-Create ACME default Account, Address is **https://acme.domain.com/acme/acme/directory** Set, Type is **standalone** Set
+Create ACME default Account, Address is **https://ca.$domain/acme/acme/directory** Set, Type is **standalone** Set
 
 # ACME For OpenWRT
+
+**Variable declaration**
+
+```shell
+DOMAIN="domain.com"
+ACME_VER="3.1.1"
+ACME_EMAIL="yourmail@domain.com"
+WRT_IP="192.168.1.1"
+```
 
 **Suppose work in home directory**
 
 ```
-wget --no-check-certificate https://acme.domain.com:443/roots.pem
+wget --no-check-certificate https://ca.$DOMAIN/roots.pem
 mv roots.pem /etc/ssl/certs/root_ca.crt
 HASH="$(openssl x509 -hash -noout -in /etc/ssl/certs/root_ca.crt).0" 
 echo "$HASH"
@@ -97,8 +110,6 @@ ln -s "/etc/ssl/certs/root_ca.crt" "/etc/ssl/certs/$HASH"
 [acmesh-official/acme.sh](https://github.com/acmesh-official/acme.sh) you can download latest acme.sh
 
 ```
-ACME_VER="3.1.1"
-ACME_EMAIL="yourmail@domain.com"
 opkg update
 opkg install unzip
 wget https://github.com/acmesh-official/acme.sh/archive/refs/tags/$ACME_VER.zip
@@ -117,10 +128,8 @@ rm -rf $ACME_VER.zip /usr/lib/acme.install
 &nbsp;
 
 ```
-DOMAIN="domain.com"
-WRT_IP="192.168.1.1"
 /usr/lib/acme/acme.sh --issue --webroot /var/run/acme/challenge/ --cert-home /etc/ssl/acme \
-    --server https://acme.$DOMAIN/acme/acme/directory \
+    --server https://ca.$DOMAIN/acme/acme/directory \
     -d router.$DOMAIN -d $WRT_IP
 ```
 > Your cert is in: /root/.acme.sh/router.domain.com_ecc/router.domain.com.cer
