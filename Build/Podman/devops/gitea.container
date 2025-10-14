@@ -1,7 +1,7 @@
 [Unit]
-Description=Git-Server
-After=dops-db.service
-Requires=dops-db.service
+Description=Gitea-Server
+After=postgres.service
+Requires=postgres.service
 
 [Service]
 Restart=always
