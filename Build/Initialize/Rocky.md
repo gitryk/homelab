@@ -23,6 +23,7 @@ mkdir -p devops/gitea/{git,gitea}
 mkdir -p devops/postgres
 mkdir kms
 touch traefik/config/acme.json
+chmod 600 traefik/config/acme.json
 touch traefik/logs/access.log
 touch traefik/logs/traefik.log
 loginctl enable-linger $UID
