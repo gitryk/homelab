@@ -6,6 +6,11 @@ If you can't Login LXC Container, connect to console, and **adduser**
 
 &nbsp;
 
+## Variable declaration
+```shell
+DOMAIN="domain.com"
+```
+
 ## Install Step-CA
 ```sh
 sudo apt update && sudo apt install -y --no-install-recommends curl vim gpg ca-certificates
