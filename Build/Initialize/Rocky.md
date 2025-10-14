@@ -1,4 +1,12 @@
 # Rocky Initailize
+
+**Environment settings**
+
+```shell
+
+```
+
+
 **Environment settings**
 
 ```shell
