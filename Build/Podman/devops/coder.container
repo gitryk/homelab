@@ -12,6 +12,7 @@ UserNS=keep-id:uid=1000,gid=1000
 Image=docker.io/codercom/code-server:4.104.3
 ContainerName=coder
 Pod=devops.pod
+Network=services.network
 
 Environment=TZ=Asia/Seoul
 
