@@ -1,11 +1,12 @@
 # Rocky Initailize
 
-**Environment settings**
+**Variable declaration**
 
 ```shell
 DOMAIN="domain.com"
 ```
 
+&nbsp;
 
 **Environment settings**
 
