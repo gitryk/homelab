@@ -13,7 +13,6 @@ UserNS=keep-id:uid=1000,gid=1000
 
 Image=docker.gitea.com/gitea:1.24.6-rootless
 ContainerName=gitea
-Network=services.network
 Pod=devops.pod
 
 EnvironmentFile=%h/devops/gitea.env
