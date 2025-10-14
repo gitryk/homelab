@@ -1,0 +1,15 @@
+http:
+  routers:
+    kms-gui:
+      entryPoints: [websecure]
+      service: kms-gui
+      middlewares: []
+      rule: 'Host(`kms.{{ env "DOMAIN" }}`)'
+      tls:
+        certResolver: step
+
+  services:
+    kms-gui:
+      loadBalancer:
+        servers:
+          - url: "http://kms:3000/"
