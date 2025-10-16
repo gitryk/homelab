@@ -57,10 +57,40 @@ step certificate fingerprint /root/.step/certs/root_ca.crt
 ```
 step ca provisioner add acme --type ACME
 ```
+> Set Provisioner
+
+&nbsp;
 
 ```
-step-ca
+vi /root/.step/config/password
+# Put intermediate_ca Password
+vi /etc/systemd/system/step-ca.service
 ```
+
+```
+[Unit]
+Description=Step Certificates
+Documentation=https://smallstep.com/docs/step-ca/
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/step-ca /root/.step/config/ca.json --password-file /root/.step/config/password
+WorkingDirectory=/root/.step
+User=root
+Group=root
+LimitNOFILE=65536
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+systemctl enable step-ca
+systemctl start step-ca
+```
+> Service Create And Execute
 
 # ACME For Proxmox
 
