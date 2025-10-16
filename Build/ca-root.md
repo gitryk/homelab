@@ -15,9 +15,17 @@ apt install yubikey-manager yubico-piv-tool opensc libengine-pkcs11-openssl
 &nbsp;
 
 ## Download Pre-Config File
+
+**Variable declaration**
+
+```shell
+GIT_URL="https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main"
 ```
-wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-inter.conf
-wget https://raw.githubusercontent.com/gitryk/homelab/refs/heads/main/Build/acme/ca-root.conf
+&nbsp;
+
+```
+wget $GIT_URL/Build/acme/ca-inter.conf
+wget $GIT_URL/Build/acme/ca-root.conf
 ```
 
 > modify conf if your want
