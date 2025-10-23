@@ -19,7 +19,7 @@ mkdir -p ~/.config/containers/systemd/
 mkdir -p ~/.config/systemd/user
 mkdir -p traefik/{config,logs}
 mkdir -p devops/code-server/{config,local,workspace}
-mkdir -p devops/gitea/{git,gitea}
+mkdir -p devops/gitea/{data,config}
 mkdir -p devops/postgres
 mkdir kms
 touch traefik/logs/access.log
