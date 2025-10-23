@@ -18,8 +18,8 @@ Network=services.network
 
 EnvironmentFile=%h/devops/gitea.env
 
-Volume=%h/devops/gitea/git/:/data/git/:Z
-Volume=%h/devops/gitea/gitea/:/data/gitea/:Z
+Volume=%h/devops/gitea/data/:/var/lib/gitea/:Z
+Volume=%h/devops/gitea/config/:/etc/gitea/:Z
 
 [Install]
 WantedBy=multi-user.target default.target
