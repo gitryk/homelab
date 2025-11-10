@@ -13,7 +13,7 @@ passwd $USER_NAME
 
 &nbsp;
 
-**Disable IPv6**
+**Disable IPv6(for VM, Not LXC)**
 
 ```
 sudo vi /etc/sysctl.d/99-sysctl.conf
