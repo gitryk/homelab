@@ -32,7 +32,7 @@ sudo systemctl restart procps
 
 &nbsp;
 
-**Static IP Setting**
+**Static IP Setting(for VM, Not LXC)**
 
 ```
 sudo vi /etc/network/interfaces
