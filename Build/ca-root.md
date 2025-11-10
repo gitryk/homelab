@@ -4,6 +4,18 @@
 
 &nbsp;
 
+## If use Proxmox LXC
+```
+lsusb
+```
+|Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub<br>Bus 001 Device 002: ID 1050:0407 Yubico.com Yubikey 4/5 OTP+U2F+CCID<br>Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub|
+|:---|
+> ADD > Device Passthrough > "/dev/bus/usb/001/002"
+> 
+> Modify it to suit your environment. 
+
+&nbsp;
+
 ## Yubikey Install Dependencies
 ```
 apt-add-repository ppa:yubico/stable
