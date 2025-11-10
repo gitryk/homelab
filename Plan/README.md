@@ -12,7 +12,7 @@ Infra Diagram
 
 |Range|Host|Domain|Note|
 |:---:|---|---|---|
-|001|OpenWrt|router|Redmi AX6000|
+|001|TryK-Router|router|Redmi AX6000(OpenWRT)|
 |002|ca-root|-|Proxmox VM|
 |003|ca-server|ca|Proxmox LXC|
 |010|pve-00|pve-00|Lenovo M70q, Proxmox Master|
