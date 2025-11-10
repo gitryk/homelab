@@ -12,7 +12,7 @@ Infra Diagram
 
 |Range|Host|Domain|Note|
 |:---:|---|---|---|
-|001|OpenWrt|router+dns|Redmi AX6000|
+|001|OpenWrt|router|Redmi AX6000|
 |002||||
 |003|ca-root|-|Proxmox VM|
 |004|ca-server|ca|Proxmox LXC|
