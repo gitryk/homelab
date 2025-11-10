@@ -13,8 +13,8 @@ Infra Diagram
 |Range|Host|Domain|Note|
 |:---:|---|---|---|
 |001|TryK-Router|router|Redmi AX6000(OpenWRT)|
-|002|ca-root|-|Proxmox VM|
-|003|ca-server|ca|Proxmox LXC|
+|002|ca-root|-|Proxmox LXC(Devian 13)|
+|003|ca-server|ca|Proxmox LXC(Devian 13)|
 |010|pve-00|pve-00|Lenovo M70q, Proxmox Master|
 |011|pve-01|pve-01|Lenovo M720q, Proxmox Node 01|
 |012|pve-02|pve-02|Lenovo M720q, Proxmox Node 02|
@@ -28,6 +28,7 @@ Infra Diagram
 |032|TalOS-Worker-02||TalOS Worker-Node VM|
 |033|TalOS-Worker-03||TalOS Worker-Node VM|
 |040-099|Proxmox VM Range|||
+|040|DevOps-Rocky|devops|Proxmox VM(Rocky Linux)|
 |150-249|DHCP Range|||
 |||||
 
