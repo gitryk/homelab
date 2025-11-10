@@ -23,7 +23,7 @@ Infra Diagram
 |020||||
 |030||||
 |040-099|Proxmox VM Range|||
-|100-149|DHCP Range|||
+|150-249|DHCP Range|||
 
 Etc...
 
