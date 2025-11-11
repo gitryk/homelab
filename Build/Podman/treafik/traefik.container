@@ -14,7 +14,7 @@ PublishPort=10443:10443/tcp
 PublishPort=10443:10443/udp
 
 ContainerName=traefik
-Image=docker.io/library/traefik:v3.5.3
+Image=docker.io/library/traefik:v3.6.0
 Network=services.network
 
 Environment=SSL_CERT_FILE=/traefik/root_ca.crt
