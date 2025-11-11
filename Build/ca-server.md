@@ -67,6 +67,26 @@ vi /root/.step/config/password
 vi /etc/systemd/system/step-ca.service
 ```
 
+&nbsp;
+
+```
+                                "type": "ACME",
+                                "name": "acme",
+                                "claims": {
+                                        "enableSSHCA": true,
+                                        "disableRenewal": false,
+                                        "allowRenewalAfterExpiry": false,
+                                        "disableSmallstepExtensions": false,
+                                        "minTLSCertDuration": "72h",
+                                        "maxTLSCertDuration": "360h",
+                                        "defaultTLSCertDuration": "168h",
+                                },
+```
+
+> Sample ca.json part
+
+&nbsp;
+
 ```
 [Unit]
 Description=Step Certificates
