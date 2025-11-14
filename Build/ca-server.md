@@ -132,7 +132,7 @@ update-ca-certificates
 
 &nbsp;
 
-Create ACME default Account, Address is **https://ca.$domain/acme/acme/directory** Set, Type is **standalone** Set
+Create ACME default Account, Address is **https://ca.$domain/acme/acme/directory**, Type is **standalone**
 
 &nbsp;
 
@@ -144,6 +144,8 @@ Create ACME default Account, Address is **https://ca.$domain/acme/acme/directory
 DOMAIN="domain.com"
 step ca token nas --san nas.domain.com --not-after 1h
 ```
+
+&nbsp;
 
 **Setup to TrueNAS(Need Allow SSH for Root)**
 
