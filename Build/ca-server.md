@@ -70,17 +70,16 @@ vi /etc/systemd/system/step-ca.service
 &nbsp;
 
 ```
-                                "type": "ACME",
-                                "name": "acme",
-                                "claims": {
-                                        "enableSSHCA": true,
-                                        "disableRenewal": false,
-                                        "allowRenewalAfterExpiry": false,
-                                        "disableSmallstepExtensions": false,
-                                        "minTLSCertDuration": "72h",
-                                        "maxTLSCertDuration": "360h",
-                                        "defaultTLSCertDuration": "168h",
-                                },
+...
+        "authority": {
+                "claims": {
+                        "disableRenewal": false,
+                        "allowRenewalAfterExpiry": false,
+                        "maxTLSCertDuration": "360h",
+                        "defaultTLSCertDuration": "168h"
+                },
+                "provisioners": [
+...
 ```
 
 > Sample ca.json part
@@ -134,6 +133,79 @@ update-ca-certificates
 &nbsp;
 
 Create ACME default Account, Address is **https://ca.$domain/acme/acme/directory** Set, Type is **standalone** Set
+
+&nbsp;
+
+# ACME For TrueNAS
+
+**Token Create at CA-Server**
+
+```shell
+DOMAIN="domain.com"
+step ca token nas --san nas.domain.com --not-after 1h
+```
+
+**Setup to TrueNAS(Need Allow SSH for Root)**
+
+```shell
+DOMAIN="domain.com"
+wget https://dl.smallstep.com/cli/docs-ca-install/latest/step_linux_amd64.tar.gz
+tar -xf step_linux_amd64.tar.gz
+mv step_linux_amd64/bin/step /root
+chown root:root step
+rm -rf step_*
+mkdir /root/cert
+wget --no-check-certificate https://ca.$DOMAIN/roots.pem
+wget https://raw.githubusercontent.com/danb35/deploy-freenas/refs/heads/master/deploy_truenas.py
+chmod 700 deploy_truenas.py
+```
+> Basic Environment Setup
+
+&nbsp;
+
+**Issue Cert for NAS**
+
+```shell
+TOKEN="(Paste Before Step Token)"
+/root/step ca certificate --token $TOKEN --not-after 168h nas /root/cert/nas.crt /root/cert/nas.key
+```
+> 
+
+&nbsp;
+
+**Create Script Setting**
+
+```shell
+vi deploy_config
+```
+```
+[deploy]
+api_key = (Create API Key at TrueNAS WebUI, Set User "Root")
+
+privkey_path = /root/cert/nas.key
+fullchain_path = /root/cert/nas.crt
+
+delete_old_certs = true
+
+verify_ssl = false
+```
+
+&nbsp;
+
+**Run Python Script**
+
+```
+python3 /root/deploy_truenas.py
+```
+
+&nbsp;
+
+**Add Cron(Recommanded before the expiration interval)**
+```
+/root/step ca renew --ca-url https://ca.(your domain)/acme/acme/directory --force --root /root/roots.pem /root/cert/nas.crt /root/cert/nas.key && /usr/bin/python3 /root/deploy_truenas.py
+```
+
+&nbsp;
 
 # ACME For OpenWRT(not Working mbedtls)
 
@@ -226,3 +298,5 @@ After restart uhttpd
 [Building Your Own PKI with Step-CA](https://gyptazy.com/building-your-own-pki-with-step-ca-from-root-ca-to-proxmox-integration-with-acme/)
 
 [LetsEncrypt with ACME on OpenWRT](https://wiki.terrabase.info/wiki/LetsEncrypt_with_ACME_on_OpenWRT)
+
+[Trouble with Certificates: Automating my SSH CA and the many many exceptions required](https://i.am.eddmil.es/posts/ssh-certificates/)
