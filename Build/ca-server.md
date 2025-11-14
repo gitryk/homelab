@@ -83,6 +83,7 @@ vi /etc/systemd/system/step-ca.service
 ```
 
 > Sample ca.json part
+> Max 15d, default 7d
 
 &nbsp;
 
