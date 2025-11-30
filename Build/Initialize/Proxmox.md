@@ -9,3 +9,9 @@ resize2fs -p /dev/pve/root
 > Datacenter > Storage > "local-lvm" Delete > Add role "local" Storage
 
 &nbsp;
+
+**Post Install Script**
+
+```shell
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pve-install.sh)"
+```
