@@ -41,6 +41,7 @@ rm -rf /root/.step/certs/* /root/.step/secrets/*
 mv intermediate_ca.crt /root/.step/certs/intermediate_ca.crt
 mv intermediate_ca_key /root/.step/secrets/intermediate_ca_key
 mv root_ca.crt /root/.step/certs/root_ca.crt
+mv password /root/.step/config/password
 ```
 > Delete the temporarily created structure and move the file.
 
@@ -62,8 +63,6 @@ step ca provisioner add acme --type ACME
 &nbsp;
 
 ```
-vi /root/.step/config/password
-# Put intermediate_ca Password
 vi /etc/systemd/system/step-ca.service
 ```
 
