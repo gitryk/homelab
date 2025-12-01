@@ -63,10 +63,8 @@ step ca provisioner add acme --type ACME
 &nbsp;
 
 ```
-vi /etc/systemd/system/step-ca.service
+vi /root/.step/config/ca.json
 ```
-
-&nbsp;
 
 ```
 ...
@@ -83,6 +81,13 @@ vi /etc/systemd/system/step-ca.service
 
 > Sample ca.json part
 > Max 15d, default 7d
+
+&nbsp;
+
+```
+vi /etc/systemd/system/step-ca.service
+```
+> create systemctl service
 
 &nbsp;
 
