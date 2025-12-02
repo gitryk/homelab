@@ -76,3 +76,31 @@ sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+
+```
+git config --global credential.helper store
+```
+
+```
+vi ~/.bashrc
+```
+
+
+```
+function gpush() {
+  if [ -z "$1" ]; then
+    echo "Usage: gpush \"Commit Msg\""
+    return 1
+  fi
+  
+  echo "--- Staging files... ---"
+  git add . && \
+  git commit -m "$1" && \
+  git push origin main
+}
+```
+
+```
+source ~/.bashrc
+```
