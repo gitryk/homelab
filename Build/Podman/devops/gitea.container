@@ -11,9 +11,8 @@ RestartSec=10s
 NoNewPrivileges=true
 UserNS=keep-id:uid=1000,gid=1000
 
-Image=docker.gitea.com/gitea:1.24.6-rootless
+Image=docker.gitea.com/gitea:1.25.2-rootless
 ContainerName=gitea
-Pod=devops.pod
 Network=services.network
 
 EnvironmentFile=%h/devops/gitea.env
