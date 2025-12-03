@@ -141,6 +141,15 @@ Create ACME default Account, Address is **https://ca.$domain/acme/acme/directory
 
 &nbsp;
 
+**Proxmox Backup Server**
+
+```
+proxmox-backup-manager acme account register default you@$domain --directory https://ca.$domain/acme/acme/directory
+```
+> if you want adding account for pbs, need to enter the command in the shell.
+
+&nbsp;
+
 # ACME For TrueNAS
 
 **Token Create at CA-Server**
