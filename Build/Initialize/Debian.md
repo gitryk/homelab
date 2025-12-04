@@ -52,12 +52,14 @@ sudo systemctl restart networking
 
 &nbsp;
 
-**If Need**
+**Timezone(if needed)**
 ```shell
 timedatectl set-timezone Asia/Seoul
 ```
 
 &nbsp;
+
+**Docker Install**
 
 ```
 # Add Docker's official GPG key:
@@ -77,16 +79,33 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
+&nbsp;
+
+**kubectl Install**
+
+```
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+```
+
+&nbsp;
+
+**Git Setting**
 
 ```
 git config --global credential.helper store
 ```
+> Stop Git from asking for credentials after first push
+
+&nbsp;
 
 ```
 vi ~/.bashrc
 ```
-
-
 ```
 function gpush() {
   if [ -z "$1" ]; then
@@ -100,7 +119,7 @@ function gpush() {
   git push origin main
 }
 ```
-
 ```
 source ~/.bashrc
 ```
+> Consolidating Git commands into a single instruction.
