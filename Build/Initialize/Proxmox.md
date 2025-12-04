@@ -15,13 +15,11 @@ resize2fs -p /dev/pve/root
 ```shell
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pve-install.sh)"
 ```
-
-&nbsp;
-
-**EFI Disk ReSize(for Talos VM)**
+> Init Script
 
 ```shell
-VMID=101
-qm set $VMID -efidisk0 local:1,format=qcow2,efitype=4m,pre-enrolled-keys=1
-qm resize $VMID efidisk0 4M
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/nic-offloading-fix.sh)"
 ```
+> intel e1000 fix
+
+&nbsp;
