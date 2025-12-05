@@ -156,7 +156,7 @@ proxmox-backup-manager acme account register default you@$domain --directory htt
 
 ```shell
 DOMAIN="domain.com"
-step ca token nas --san nas.domain.com --not-after 1h
+step ca token nas --san nas.$DOMAIN --not-after 1h
 ```
 
 &nbsp;
