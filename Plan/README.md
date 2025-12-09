@@ -17,11 +17,8 @@ Infra Diagram
 |003|ca-root|-|Proxmox LXC(Devian 13)|
 |004|ca-server|ca|Proxmox LXC(Devian 13)|
 |005|truenas|nas|Lenovo M720q|
-|010|pve-00|pve00|Lenovo M70q, Proxmox Master|
-|011|pve-01|pve01|Lenovo M720q, Proxmox Node 01|
-|012|pve-02|pve02|Lenovo M720q, Proxmox Node 02|
-|013|pve-03|pve03|Lenovo M720q, Proxmox Node 03|
-|015|pbs|pbs|TrueNAS VM|
+|006|pbs|pbs|TrueNAS VM|
+|010|pve|pve|Lenovo M70q, Proxmox Master|
 |020|k8s-master|k8s|Lenovo M75q Gen2(Talos Linux)|
 |021|k8s-worker-01||Lenovo M720q(Talos Linux)|
 |022|k8s-worker-02||Lenovo M720q(Talos Linux)|
