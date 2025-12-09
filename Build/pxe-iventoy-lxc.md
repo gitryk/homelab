@@ -26,12 +26,16 @@ EFI Boot File : snp.efi
 
 ## Modify OpenWrt dnsmasq config
 ```sh
-dhcp-match=set:bios,60,PXEClient:Arch:00000
-dhcp-boot=tag:bios,iventoy_loader_16000,,192.168.x.x
+dhcp-match=set:bios,option:client-arch,0      # x86 BIOS
+dhcp-match=set:efi,option:client-arch,7       # x64 UEFI
+dhcp-match=set:efi,option:client-arch,9       # x64 UEFI (Alternative)
+
+dhcp-boot=tag:bios,iventoy_loader_16000,,192.168.xx.x
+dhcp-boot=tag:efi,iventoy_loader_16000_uefi,,192.168.xx.x
 ```
 > Modify IP your iVentoy IP, and Add line at /etc/dnsmasq.conf
 
-> Then, reboot OpenWrt
+> Then, restart dnsmasq
 
 &nbsp;
 
