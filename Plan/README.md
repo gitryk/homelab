@@ -13,27 +13,25 @@ Infra Diagram
 |Range|Host|Domain|Note|
 |:---:|---|---|---|
 |001|TryK-Router|router|Redmi AX6000(OpenWRT)|
-|002|ca-root|-|Proxmox LXC(Devian 13)|
-|003|ca-server|ca|Proxmox LXC(Devian 13)|
+|002|iVentoy||Proxmox LXC(PXE Server)|
+|003|ca-root|-|Proxmox LXC(Devian 13)|
+|004|ca-server|ca|Proxmox LXC(Devian 13)|
 |005|truenas|nas|Lenovo M720q|
 |010|pve-00|pve-00|Lenovo M70q, Proxmox Master|
 |011|pve-01|pve-01|Lenovo M720q, Proxmox Node 01|
 |012|pve-02|pve-02|Lenovo M720q, Proxmox Node 02|
 |013|pve-03|pve-03|Lenovo M720q, Proxmox Node 03|
-|014||||
-|015|pbs|pbs|Lenovo M75q Gen2|
-|020||k8s|TalOS Vip|
-|021|TalOS-Master-01||TalOS Control-Plane VM|
-|022|TalOS-Master-02||TalOS Control-Plane VM|
-|023|TalOS-Master-03||TalOS Control-Plane VM|
-|030||||
-|031|TalOS-Worker-01||TalOS Worker-Node VM|
-|032|TalOS-Worker-02||TalOS Worker-Node VM|
-|033|TalOS-Worker-03||TalOS Worker-Node VM|
-|040-099|Proxmox VM Range|||
+|015|pbs|pbs|TrueNAS VM|
+|020|k8s-master|k8s|Lenovo M75q Gen2(Talos Linux)|
+|021|k8s-worker-01||Lenovo M720q(Talos Linux)|
+|022|k8s-worker-02||Lenovo M720q(Talos Linux)|
+|023|k8s-worker-03||Lenovo M720q(Talos Linux)|
+|025-039|MetalLB IP Range|||
+|040-099|Proxmox VM/LXC Range|||
 |040|DevOps-Rocky|devops|Proxmox VM(Rocky Linux)|
-|150-249|DHCP Range|||
-|||||
+|050|TryK-Bastion||Proxmox VM(Windows 10 LTSC)|
+|100-249|DHCP Range|||
+|250|wireguard||Proxmox LXC(VPN Tunnel)|
 
 Etc...
 
