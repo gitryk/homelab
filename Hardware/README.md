@@ -54,19 +54,34 @@ buy on Aliexpress 2 Unit
 
 &nbsp;
 
-## Lenovo Tiny M70q Gen 3
+## Lenovo P360Tiny
+
+<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/p360tiny.jpg" width="40%" height="40%">
+
+|Component|Item|
+|---|---|
+|CPU|Intel i5-13600 ES3(Q1BQ)|
+|RAM|DDR5-4800 32GB So-Dimm|
+|OS|Proxmox VE 9.1|
+|SSD/OS|Samsung PM961 NVMe 120GB * 2|
+|SSD/Data|SK Hynix PC711 SATA 512GB|
+
+**Proxmox VE Server**
+
+&nbsp;
+
+## Lenovo M75q Gen 2
 
 <img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/m70q.png" width="40%" height="40%">
 
 |Component|Item|
 |---|---|
-|CPU|Intel i5-13600 ES3(Q1BQ)|
-|RAM|DDR4-3200 32GB So-Dimm|
-|OS|Proxmox VE 9.0|
+|CPU|AMD R3-5300GE ES|
+|RAM|DDR4-3200 16GB So-Dimm|
+|OS|Talos Linux 1.12|
 |SSD/OS|Samsung PM961 NVMe 120GB|
-|SSD/Data|Micron MX500 SATA 1TB|
 
-**Proxmox VE Server**
+**Kubernates Control-Plane**
 
 &nbsp;
 
@@ -82,7 +97,7 @@ buy on Aliexpress 2 Unit
 |---|---|
 |CPU|Intel i7-8700 ES(QN8H)|
 |RAM|DDR4-3200 16GB So-Dimm|
-|OS|Talos Linux v1.10|
+|OS|Talos Linux v1.12|
 |SSD/OS|Samsung PM961 NVMe 120GB|
 |SSD/Data|Intel DC S3500 SATA 480GB|
 
@@ -97,8 +112,8 @@ buy on Aliexpress 2 Unit
 |Component|Item|
 |---|---|
 |CPU|Intel i7-8700T ES(QN8J)|
-|RAM|DDR4-3200 16GB So-Dimm|
-|OS|TrueNAS Scale 25.04.1|
+|RAM|DDR4-3200 32GB So-Dimm|
+|OS|TrueNAS Scale 25.10.1|
 |HBA|LSI SAS 9300-8e + Custom Cooler|
 |SSD/OS|SK Hynix BC501A NVMe 120GB|
 |SSD/Cache|Intel Optane Memory M10 64GB |
@@ -107,35 +122,16 @@ buy on Aliexpress 2 Unit
 
 &nbsp;
 
-## Radxa X4
+## KP-9000-9XHML-X
 
-<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/x4.png" width="30%" height="30%"><img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/heatsink_x4.png" width="30%" height="30%">
+<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/25switch.jpg" width="50%" height="50%">
 
-|Component|Item|
-|---|---|
-|CPU|Intel Core N100|
-|RAM|LPDDR5-4800 4GB|
-|OS|Talos Linux v1.10|
-|SSD/OS|SK Hynix BC501A NVMe 128GB|
-
-**Kubernetes Cluster For Control-Plane** / Running on 3 units.
-
-&nbsp;
-
-## KP-9000-10GP-MAC
-
-<img src="https://raw.githubusercontent.com/gitryk/homelab/main/Images/Hardware/poe_switch.png" width="50%" height="50%">
-
-**keepLink 10-Port PoE Switch**
+**keepLink 9-Port 2.5G Switch**
 
 |Category|Spec|Remark|
 |---|---|---|
-|POE+ Port|8 Port|802.3af/at Supported|
-|Uplink Port|2 Port|-|
-|Rated power|135W|-|
-|Switching Capacity|2G|-|
-
-I use a POE switch to power serve the Radxa X4(x3).
+|Uplink Port|1 Port SFP+|-|
+|Switching Capacity|60Gbps|-|
 
 buy on Aliexpress
 
