@@ -171,8 +171,7 @@ openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
 ```
 openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
   -CAkey id_1 -CA root_ca.crt -CAcreateserial \
-  -extfile ca-inter.conf -extensions inter_ca \
-  -in intermediate.csr -out intermediate_ca.crt \
+  -extfile ca-inter.conf -in intermediate.csr -out intermediate_ca.crt \
   -req -days 3650
 ```
 > Sign CSR with Root CA Key inside Yubikey
@@ -181,8 +180,7 @@ openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
 
 ```
 openssl x509 -sha256 -CAkey root_ca.key -CA root_ca.crt \
-  -extfile ca-inter.conf -extensions inter_ca \
-  -in intermediate.csr -out intermediate_ca.crt \
+  -extfile ca-inter.conf -in intermediate.csr -out intermediate_ca.crt \
   -req -days 3650
 ```
 > if don't have Yubikey
