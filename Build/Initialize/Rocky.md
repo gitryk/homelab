@@ -58,3 +58,11 @@ sudo update-ca-trust extract
 ```
 
 &nbsp;
+
+```
+sudo tee /etc/modules-load.d/podman.conf <<EOF
+iptable_nat
+nf_nat
+EOF
+```
+
