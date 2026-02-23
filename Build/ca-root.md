@@ -170,7 +170,7 @@ openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
 
 ```
 openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
-  -CAkey id_1 -CA root_ca.crt -CAcreateserial \
+  -CAkey id_1 -CA root_ca.crt -CAcreateserial -extensions inter_ca \
   -extfile ca-inter.conf -in intermediate.csr -out intermediate_ca.crt \
   -req -days 3650
 ```
