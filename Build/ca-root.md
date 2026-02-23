@@ -181,7 +181,7 @@ openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
 ```
 openssl x509 -sha256 -CAkey root_ca.key -CA root_ca.crt \
   -extfile ca-inter.conf -in intermediate.csr -out intermediate_ca.crt \
-  -req -days 3650
+  -req -days 3650 -extensions inter_ca
 ```
 > if don't have Yubikey
 
