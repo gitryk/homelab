@@ -162,6 +162,12 @@ Step Ended, Delete your key (Only Yubikey you have)
 openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
   -keyout intermediate_ca_key -config ca-inter.conf -out intermediate.csr
 ```
+
+```
+openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
+  -keyout intermediate_k8s_key -config ca-k8s.conf -out intermediate_k8s.csr
+```
+
 |Enter PEM pass phrase: (pass phrase you want)<br>Verifying - Enter PEM pass phrase:(1 more)|
 |:---|
 > Create Intermediate CA Key
@@ -172,6 +178,13 @@ openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:prime256v1 -sha256 \
 openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
   -CAkey id_1 -CA root_ca.crt -CAcreateserial -extensions inter_ca \
   -extfile ca-inter.conf -in intermediate.csr -out intermediate_ca.crt \
+  -req -days 3650
+```
+
+```
+openssl x509 -sha256 -engine pkcs11 -CAkeyform engine \
+  -CAkey id_1 -CA root_ca.crt -CAcreateserial -extensions inter_k8s \
+  -extfile ca-k8s.conf -in intermediate_k8s.csr -out intermediate_k8s.crt \
   -req -days 3650
 ```
 > Sign CSR with Root CA Key inside Yubikey
@@ -190,6 +203,9 @@ openssl x509 -sha256 -CAkey root_ca.key -CA root_ca.crt \
 
 ```
 openssl x509 -in intermediate_ca.crt -text -noout
+```
+```
+openssl x509 -in intermediate_k8s.crt -text -noout
 ```
 > Check Intermediate CA if you want
 
